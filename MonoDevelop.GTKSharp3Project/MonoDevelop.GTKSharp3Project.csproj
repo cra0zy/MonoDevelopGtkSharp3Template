@@ -36,32 +36,46 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="MonoDevelop.Ide">
+      <HintPath>..\..\monodevelop\main\build\bin\MonoDevelop.Ide.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoDevelop.DesignerSupport">
+      <HintPath>..\..\monodevelop\main\build\AddIns\MonoDevelop.DesignerSupport\MonoDevelop.DesignerSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoDevelop.Core">
+      <HintPath>..\..\monodevelop\main\build\bin\MonoDevelop.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="GladeDisplayBinding.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <EmbeddedResource Include="addin.xml" />
-    <EmbeddedResource Include="templates\GTKSharp3Project.xpt.xml">
-      <LogicalName>GTKSharp3Project.xpt.xml</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="icons\C#.FileIcon">
-      <LogicalName>C#.FileIcon</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="icons\csharp-icon-32.png">
-      <LogicalName>csharp-icon-32.png</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="icons\csharp-project-16.png">
-      <LogicalName>csharp-project-16.png</LogicalName>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="templates\" />
+    <Folder Include="templates\files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="addin.info">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\glade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\files\MainWindow.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\files\MainWindow.glade">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\files\Program.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="templates\GtkSharp3Project.xpt.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 </Project>

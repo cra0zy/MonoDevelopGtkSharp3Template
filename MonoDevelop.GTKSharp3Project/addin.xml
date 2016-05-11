@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <Addin namespace   = "MonoDevelop.GTKSharp3"  
-           id          = "GTKSharp3Project"  
-           name        = "GTK# 3 Simple Project Template"  
-           author      = "Robert Nordan"  
-           copyright   = "MIT/X11"  
-           url         = "http://www.robpvn.net"  
-           description = "Provides a template for a simple GTK#3 Project where you use Glade (externally) to design the UI files."  
-           category    = "GTK3 Development"  
-           version     = "0.2.0">  
-           
-		<Dependencies>  
-			<Addin id="::MonoDevelop.Ide" version="5.0"/>
-		</Dependencies> 
-		
-		<Extension path = "/MonoDevelop/Ide/ProjectTemplates">
-				<ProjectTemplate id = "GTKSharp3Project" resource = "GTKSharp3Project.xpt.xml"/>
-		</Extension>
-  
-    </Addin>  
+<Addin namespace   = "MonoDevelop"  
+       id          = "GTKSharp3Project"  
+       name        = "GTK# 3 Simple Project Template"  
+       author      = "Robert Nordan"  
+       copyright   = "MIT/X11"  
+       url         = "https://github.com/robpvn/MonoDevelopGtkSharp3Template"  
+       description = "Provides a template for a simple GTK#3 Project where you use Glade (externally) to design the UI files."  
+       category    = "GTK3 Development"  
+       version     = "0.2.0">  
+       
+	<Dependencies>
+		<Addin id="Ide" version="6.0"/>
+		<Addin id="Core" version="6.0"/>
+		<Addin id="DesignerSupport" version="4.0" />
+	</Dependencies> 
 
+	<Runtime>
+		<Import file="icons/glade.png" />
+		<Import file="templates/GtkSharp3Project.xpt.xml" />
+		<Import file="templates/files/MainWindow.cs" />
+		<Import file="templates/files/MainWindow.glade" />
+		<Import file="templates/files/Program.cs" />
+	</Runtime>
+
+	<Extension path="/MonoDevelop/Core/StockIcons">
+		<StockIcon stockid="glade-file" file="icons/glade.png" />
+	</Extension>
+
+	<Extension path="/MonoDevelop/Ide/FileFilters">
+		<FileFilter id="GLADE" insertbefore="AllFiles" _label="Glade GUI Files" extensions="*.glade" />
+	</Extension>
+	
+	<Extension path="/MonoDevelop/Core/MimeTypes">
+		<MimeType id="text/x-glade" _description="Glade GUI File" icon="glade-file" isText="false">
+			<File pattern="*.glade" />
+		</MimeType>
+	</Extension>
+	
+	<Extension path="/MonoDevelop/Ide/DisplayBindings">
+		<DisplayBinding id="GladeApp" insertbefore="DefaultDisplayBinding" class="MonoDevelop.GladeDisplayBinding" />
+	</Extension>
+	
+	<Extension path="/MonoDevelop/Ide/ProjectTemplates">
+		<ProjectTemplate id="GtkSharp3Project" file="templates/GtkSharp3Project.xpt.xml"/>
+	</Extension>
+</Addin>
